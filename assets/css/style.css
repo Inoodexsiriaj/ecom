@@ -1170,6 +1170,9 @@ p {
   display: flex;
   align-items: center;
 }
+.content .products-section h3 {
+  margin-bottom: 30px;
+}
 .content .product {
   width: 100%;
   margin-bottom: 30px;
