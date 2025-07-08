@@ -1,0 +1,150 @@
+/*=============================
+	03. Button CSS Start
+===============================*/
+
+.theme-btn {
+  color: var(--bs-black-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.32px;
+
+  padding: 10px 30px;
+  border-radius: 60px;
+  z-index: 9;
+  border: 0;
+  position: relative;
+  .btn-icon {
+    margin-left: 10px;
+  }
+  &.product-btn {
+    width: 100%;
+    border: 1px solid var(--bs-primary-color);
+    margin-top: 10px;
+    line-height: 22px;
+    font-weight: 400;
+    @media (max-width: 1199.98px) {
+      line-height: 10px;
+      padding: 10px 0px;
+    }
+  }
+  &.search-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 2px 30px;
+    font-weight: 400;
+    text-transform: capitalize;
+    background-color: var(--bs-primary-color);
+    color: var(--bs-white-color);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background-color: var(--bs-primary-color);
+    border-radius: 60px;
+    transition: var(--bs-transition);
+    z-index: -1;
+    opacity: 0;
+  }
+  &:hover {
+    color: var(--bs-white-color);
+
+    &::before {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  &.primary {
+    color: var(--bs-white-color);
+    &::before {
+      background-color: var(--bs-black-color);
+    }
+  }
+  &.transparent-btn {
+    padding: 0;
+    background-color: transparent;
+    &:hover {
+      color: var(--bs-primary-color);
+    }
+    &::before {
+      display: none;
+    }
+  }
+}
+
+/* Theme btn */
+
+// .theme-btn {
+//   color: var(--bs-white-color);
+//   font-size: 18px;
+//   font-weight: 700;
+//   line-height: 30px;
+//   background-color: var(--bs-secondary-color);
+
+// }
+// .theme-btn::before {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%) scale(0);
+//   width: 100%;
+//   height: 100%;
+//   background-color: var(--bs-black-color);
+//   border-radius: 60px;
+//   transition: var(--bs-transition);
+//   z-index: -1;
+//   opacity: 0;
+// }
+// .theme-btn .arrow {
+//   margin-left: 10px;
+//   transition: var(--bs-transition);
+//   position: relative;
+//   top: -1px;
+// }
+// .theme-btn:hover::before {
+//   transform: translate(-50%, -50%) scale(1);
+//   opacity: 1;
+// }
+
+// .theme-btn-primary {
+//   background-color: var(--bs-primary-color);
+// }
+
+// .theme-btn-tertiary {
+//   background-color: var(--bs-tertiary-color);
+//   color: var(--bs-black-color);
+// }
+// .theme-btn-tertiary:hover {
+//   color: var(--bs-white-color);
+// }
+// .theme-btn-tertiary:hover::before {
+//   background-color: var(--bs-primary-color);
+// }
+
+// .theme-btn-border {
+//   background-color: transparent;
+//   border: 1px solid var(--bs-secondary-color);
+//   color: var(--bs-black-color);
+// }
+// .theme-btn-border::before {
+//   background-color: var(--bs-secondary-color) !important;
+// }
+// .theme-btn-border svg path {
+//   transition: var(--bs-transition);
+//   fill: var(--bs-black-color) !important;
+// }
+// .theme-btn-border:hover {
+//   color: var(--bs-white-color);
+// }
+// .theme-btn-border:hover svg path {
+//   fill: var(--bs-white-color) !important;
+// }

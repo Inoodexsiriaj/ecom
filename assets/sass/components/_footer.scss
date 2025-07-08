@@ -1,0 +1,117 @@
+.footer-area {
+  padding: 90px 0;
+  background-color: var(--bs-black-color);
+
+  .footer-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    .footer-widget {
+      h4 {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--bs-white-color);
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style: none;
+        li {
+          margin-bottom: 10px;
+          color: var(--bs-background-color);
+          font-weight: 400;
+          font-size: 14px;
+          a {
+            color: var(--bs-border-color);
+            font-weight: 400;
+          }
+          span {
+            i {
+              font-size: 14px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .subcribe {
+        position: relative;
+        input {
+          width: 100%;
+          line-height: 22px;
+          border: none;
+          padding: 10px;
+          background-color: var(--bs-background-color);
+        }
+        button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          line-height: 22px;
+          padding: 10px;
+          border: none;
+        }
+      }
+
+      .footer-social {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        a {
+          text-decoration: none;
+          color: var(--bs-white-color);
+          &:hover {
+            span {
+              background-color: var(--bs-primary-color);
+              color: var(--bs-white-color);
+              border-color: var(--bs-primary-color);
+            }
+          }
+          span {
+            width: 30px;
+            height: 30px;
+            border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* মিডিয়া কোয়েরি ট্যাবলেট এবং ছোট ডিভাইসের জন্য */
+@media (max-width: 1199.98px) {
+  .footer-area .footer-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    .footer-widget {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* মোবাইল ডিভাইসের জন্য */
+@media (max-width: 767.98px) {
+  .footer-area .footer-wrapper {
+    grid-template-columns: 1fr 1fr;
+    .footer-widget {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* খুব ছোট স্ক্রিনের জন্য (যেমন মোবাইল পোর্ট্রেট) */
+@media (max-width: 575.98px) {
+  .footer-area .footer-wrapper {
+    grid-template-columns: 1fr;
+    .footer-widget {
+      margin-bottom: 30px;
+    }
+  }
+}

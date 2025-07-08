@@ -1,0 +1,17 @@
+/*=============================
+	01. Background CSS Start
+===============================*/
+.primary-bg {
+  background: var(--bs-primary-color);
+}
+.secondary-bg {
+  background: var(--bs-secondary-color);
+}
+.gray-bg {
+  background: var(--bs-background-color);
+}
+.bg-control {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

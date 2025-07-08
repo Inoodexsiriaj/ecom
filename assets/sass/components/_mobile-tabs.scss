@@ -1,0 +1,52 @@
+/*=============================
+	01. Mobile tabs CSS Start
+===============================*/
+.mobile_tabs {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 30px;
+  background-color: var(--bs-background-color);
+  box-shadow: -10px 10px 14px 7px black;
+  display: none;
+
+  z-index: 99;
+  @media (max-width: 991.98px) {
+    display: block;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li {
+      &:hover {
+        a {
+          span {
+            color: var(--bs-primary-color);
+          }
+        }
+        p {
+          color: var(--bs-primary-color);
+          text-transform: capitalize;
+        }
+      }
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--bs-black-color);
+        span {
+          color: var(--bs-black-color);
+        }
+        p {
+          font-size: 12px;
+          font-weight: 500;
+          color: var(--bs-black-color);
+        }
+      }
+    }
+  }
+}

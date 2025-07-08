@@ -1,0 +1,39 @@
+/*=============================
+	01. Top Header CSS start
+===============================*/
+
+.ep-top-header-section {
+  padding: 10px 0;
+  .contact-info {
+    gap: 52px;
+    li {
+      i {
+        font-size: 15px;
+        color: var(--bs-white-color);
+      }
+      a {
+        color: var(--bs-white-color);
+        font-size: 16px;
+        line-height: 30px;
+        position: relative;
+        &::before {
+          width: 0%;
+          height: 1px;
+          background: var(--bs-white-color);
+          position: absolute;
+          bottom: 3px;
+          left: 0;
+          content: "";
+          opacity: 0;
+          transition: var(--bs-transition);
+        }
+        &:hover {
+          &::before {
+            width: 100%;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
