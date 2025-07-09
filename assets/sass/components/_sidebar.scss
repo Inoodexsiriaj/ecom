@@ -162,7 +162,7 @@
 .sidebar-desktop {
   display: block;
   position: sticky;
-  top: 100px;
+  top: 93px;
   z-index: 10;
 
   @media (max-width: 1199.98px) {
@@ -196,6 +196,12 @@
         padding: 0 15px;
         border-bottom: 0px;
         background: var(--bs-white-color);
+        span {
+          margin-right: 5px;
+          i {
+            font-size: 14px;
+          }
+        }
 
         &:hover {
           background: var(--bs-border-color);
@@ -302,8 +308,26 @@
 }
 // Content cards
 .content {
+  .main-menu {
+    background: var(--bs-primary-color);
+    margin-bottom: 20px;
+    border-radius: 7px;
+    padding: 0 15px;
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      li {
+        a {
+          font-size: 14px;
+          color: var(--bs-paragraph-color);
+          padding: 10px 0;
+          color: var(--bs-white-color);
+        }
+      }
+    }
+  }
   // banner css
-
   .banner {
     width: 100%;
     .banner-slider {
