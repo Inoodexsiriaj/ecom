@@ -2,9 +2,10 @@
 	03. main wrapper  CSS Start
 ===============================*/
 .main-wrapper {
-  margin-top: 165px;
-  padding-bottom: 90px;
+  margin-top: 20px;
+  padding-bottom: 40px;
   @media (max-width: 1199.98px) {
     margin-top: 80px;
   }
+  // background-color: var(--bs-background-color);
 }

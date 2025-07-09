@@ -1,0 +1,51 @@
+/*=============================
+	03. Rating CSS Start
+===============================*/
+.star-rating-filter-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .star-rating {
+    display: flex;
+
+    gap: 5px;
+
+    .star {
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--bs-border-color);
+      transition: color 0.3s ease;
+
+      &.active,
+      &.hover {
+        color: var(
+          --bs-primary-color
+        ); // Primary color for selected/hovered stars
+      }
+
+      i {
+        pointer-events: none; // Prevent icon from intercepting click events
+      }
+    }
+  }
+
+  .selected-rating {
+    font-size: 14px;
+    color: #333;
+    margin-top: 15px;
+
+    #selected-rating {
+      font-weight: 600;
+      color: var(--bs-paragraph-color);
+    }
+  }
+}

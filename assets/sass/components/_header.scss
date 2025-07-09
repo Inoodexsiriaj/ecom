@@ -7,17 +7,17 @@
   height: 2000px;
 }
 .ep-header-section {
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: var(--bs-white-color);
   z-index: 99;
+
   .menu {
     background: var(--bs-primary-color);
+
     .navbar-nav {
       .nav-item {
         color: #fff;
         text-transform: uppercase;
+
         &:hover > {
           .nav-link {
             color: var(--bs-white-color) !important;
@@ -29,10 +29,24 @@
 
   .main-nav {
     padding: 15px 0;
+    transition: all 0.3s ease;
+
+    &.fixed-nav {
+      position: fixed;
+      top: -100px;
+      left: 0;
+      right: 0;
+      background-color: var(--bs-white-color);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      animation: slideDown 0.3s ease forwards;
+      z-index: 1000;
+    }
+
     .header-btns {
       display: flex;
       align-items: center;
       gap: 20px;
+
       .bars {
         .navbar-toggler {
           width: 30px;
@@ -49,19 +63,23 @@
           transition: var(--bs-navbar-toggler-transition);
           outline: none;
           border: 1px solid var(--bs-paragraph-color);
+
           &:hover {
             background-color: var(--bs-primary-color);
             color: var(--bs-white-color);
           }
+
           &:focus {
             outline: none;
             box-shadow: none;
           }
         }
       }
+
       a {
         .icon {
           position: relative;
+
           .badge {
             position: absolute;
             top: -8px;
@@ -73,15 +91,18 @@
             color: var(--bs-white-color);
             font-size: 9px;
           }
+
           i {
             color: var(--bs-paragraph-color);
           }
         }
       }
     }
+
     .search-input {
       max-width: 50%;
       width: 100%;
+
       form {
         position: relative;
       }
@@ -91,6 +112,7 @@
         padding: 10px;
         border-radius: 30px;
         border: 1px solid var(--bs-primary-color);
+
         &::placeholder {
           font-size: 16px;
         }
@@ -107,10 +129,12 @@
       .search {
         max-width: 400px;
         width: 100%;
+
         input {
           width: 100%;
         }
       }
+
       .nav-item {
         margin: 0 5px;
         position: relative;
@@ -178,6 +202,16 @@
         }
       }
     }
+  }
+}
+
+// Animation for sliding down
+@keyframes slideDown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0;
   }
 }
 
@@ -405,6 +439,7 @@
   transition: var(--bs-transition);
   padding: 20px;
   padding-top: 40px;
+  z-index: 10;
   .mobile-menu-close {
     width: 30px;
     height: 30px;

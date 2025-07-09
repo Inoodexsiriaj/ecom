@@ -1,6 +1,23 @@
 (function ($) {
   "use strict";
 
+  // fixed menu on scroll 
+    var $header = $('#sticky-header');
+  var lastScrollTop = 0;
+
+  $(window).on('scroll', function () {
+    var scrollTop = $(window).scrollTop();
+    var headerHeight = $header.outerHeight();
+
+    if (scrollTop > headerHeight) {
+      $header.addClass('fixed-nav');
+    } else {
+      $header.removeClass('fixed-nav');
+    }
+
+    lastScrollTop = scrollTop;
+  });
+
   //   offcanvas menu js offcanvas-overlay
   $(".offcanvas-btn").on("click", function () {
     $(".offcanvas-menu, .offcanvas-overlay").addClass("active");
@@ -54,26 +71,78 @@
       parent.toggleClass("open");
       parent.find(".dropdown-menu").slideToggle(300);
     });
-  //   // fixed menu js
-  //   $(window).on("scroll", function () {
-  //     var scroll = $(window).scrollTop();
-  //     if (scroll < 120) {
-  //       $("#sticky-header").removeClass("sticky-menu");
-  //       $("#header-fixed-height").removeClass("active-height");
-  //     } else {
-  //       $("#sticky-header").addClass("sticky-menu");
-  //       $("#header-fixed-height").addClass("active-height");
-  //     }
-  //   });
 
-  //   // // Magnific popup js
-  //   $(".parent-container").magnificPopup({
-  //     delegate: ".gallery-popup",
-  //     type: "image",
-  //     gallery: {
-  //       enabled: true,
-  //     },
-  //   });
+    // range slider 
+     var $rangeMin = $('#range-min');
+  var $rangeMax = $('#range-max');
+  var $minValueDisplay = $('#min-value');
+  var $maxValueDisplay = $('#max-value');
+  var $sliderRange = $('.slider-range');
+
+  function updateSlider() {
+    var minVal = parseInt($rangeMin.val());
+    var maxVal = parseInt($rangeMax.val());
+
+    // Ensure minVal is not greater than maxVal
+    if (minVal > maxVal) {
+      $rangeMin.val(maxVal);
+      minVal = maxVal;
+    }
+
+    // Update display values
+    $minValueDisplay.text(minVal);
+    $maxValueDisplay.text(maxVal);
+
+    // Update the highlighted range
+    var minPercent = (minVal / parseInt($rangeMin.attr('max'))) * 100;
+    var maxPercent = (maxVal / parseInt($rangeMax.attr('max'))) * 100;
+    $sliderRange.css({
+      'left': minPercent + '%',
+      'width': (maxPercent - minPercent) + '%'
+    });
+  }
+
+  // Initial update
+  updateSlider();
+
+  // Event listeners for both sliders
+  $rangeMin.on('input', updateSlider);
+  $rangeMax.on('input', updateSlider);
+
+  // filter by rating 
+   var $stars = $('.star-rating .star');
+  var $selectedRating = $('#selected-rating');
+
+  // Handle click on stars
+  $stars.on('click', function () {
+    var rating = $(this).data('value');
+    $stars.removeClass('active');
+    $stars.each(function (index, star) {
+      if ($(star).data('value') <= rating) {
+        $(star).addClass('active');
+      }
+    });
+    $selectedRating.text(rating);
+    // Trigger filtering logic here (e.g., filter products with rating >= selected rating)
+    console.log('Filter products with rating >= ' + rating);
+  });
+
+  // Handle hover on stars
+  $stars.on('mouseenter', function () {
+    var rating = $(this).data('value');
+    $stars.removeClass('hover');
+    $stars.each(function (index, star) {
+      if ($(star).data('value') <= rating) {
+        $(star).addClass('hover');
+      }
+    });
+  });
+
+  // Remove hover effect when mouse leaves
+  $('.star-rating').on('mouseleave', function () {
+    $stars.removeClass('hover');
+  });
+
 
   //   // video popup js
   //   $(".vidplay").magnificPopup({
@@ -185,7 +254,7 @@
       dots: true,
       infinite: true,
       arrows: false,
-      speed: 500,
+      speed: 700,
        prevArrow: `<i class="fas arrow arrow-prev fa-arrow-left"></i>`,
        nextArrow: `<i class="fas arrow arrow-next fa-arrow-right"></i>`,
       responsive: [
@@ -232,12 +301,32 @@ $(".hot-deals").slick({
     {
       breakpoint: 480,
       settings: {
-        slidesToShow:1,
+        slidesToShow:2,
+        slidesToScroll: 1,
       },
     },
   ],
 });
 
+
+// sidebar category 
+ 
+  // Toggle megamenu on click for all devices
+  $('.toggle-submenu').on('click', function (e) {
+    e.preventDefault();
+    var $parent = $(this).parent('.megamenu');
+    var $submenu = $(this).next('.dropdown-megamenu');
+
+    // Close other open submenus
+    $('.dropdown-megamenu').not($submenu).slideUp(300, 'swing').parent('.megamenu').find('.toggle-submenu').removeClass('active');
+
+    // Toggle current submenu
+    $(this).toggleClass('active');
+    $submenu.slideToggle(300, 'swing');
+  });
+
+  // Ensure hover doesn't interfere on desktop
+  $('.catagories li.megamenu').off('mouseenter mouseleave');
   //   // // Testimonial slider js
   //   $(".testimonial-slider").slick({
   //     slidesToShow: 1,

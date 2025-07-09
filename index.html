@@ -163,7 +163,6 @@
             ></a>
             <ul class="dropdown-menu">
               <li><a href="#">Service One</a></li>
-
               <li><a href="#">Service Two</a></li>
               <li><a href="#">Service Three</a></li>
             </ul>
@@ -234,12 +233,35 @@
         <div class="container">
           <div class="row">
             <!-- sidebar start  -->
-            <div class="col-lg-2">
+            <div class="col-lg-3">
               <aside class="sidebar">
                 <ul class="catagories">
+                  <li class="cat-heading">Categories</li>
                   <li class="megamenu">
-                    <a href="#">Breakfast </a>
+                    <a href="#" class="toggle-submenu"
+                      >Breakfast <i class="fas fa-chevron-right arrow-icon"></i
+                    ></a>
                     <div class="dropdown-megamenu">
+                      <div class="megamenu-col">
+                        <h5>Liststyle</h5>
+                        <ul class="list-unstyled">
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                        </ul>
+                      </div>
+                      <div class="megamenu-col">
+                        <h5>Liststyle</h5>
+                        <ul class="list-unstyled">
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                        </ul>
+                      </div>
                       <div class="megamenu-col">
                         <h5>Liststyle</h5>
                         <ul class="list-unstyled">
@@ -253,7 +275,9 @@
                     </div>
                   </li>
                   <li class="megamenu">
-                    <a href="#">Dairy</a>
+                    <a href="#" class="toggle-submenu"
+                      >Dairy <i class="fas fa-chevron-right arrow-icon"></i
+                    ></a>
                     <div class="dropdown-megamenu">
                       <div class="megamenu-col">
                         <h5>Liststyle</h5>
@@ -273,12 +297,66 @@
                   <li><a href="#">Milk & Cream</a></li>
                   <li><a href="#">Wines</a></li>
                 </ul>
+
+                <!-- slider -->
+                <div class="dual-range-slider-container">
+                  <label for="range-min">Price:</label>
+                  <div class="slider-wrapper">
+                    <input
+                      type="range"
+                      id="range-min"
+                      min="0"
+                      max="10000"
+                      value="1000"
+                    />
+                    <input
+                      type="range"
+                      id="range-max"
+                      min="0"
+                      max="10000"
+                      value="7000"
+                    />
+                    <div class="slider-track"></div>
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-values">
+                    Min: $<span id="min-value">1000</span> | Max: $<span
+                      id="max-value"
+                      >7000</span
+                    >
+                  </div>
+                </div>
+
+                <!-- rating filter -->
+                <div class="star-rating-filter-container">
+                  <label for="star-rating">Filter by Rating:</label>
+                  <div class="star-rating">
+                    <span class="star" data-value="1"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="2"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="3"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="4"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="5"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                  </div>
+                  <div class="selected-rating">
+                    Selected: <span id="selected-rating">0</span> Star(s)
+                  </div>
+                </div>
               </aside>
             </div>
             <!-- sidebar end  -->
-            <div class="col-lg-10">
+            <div class="col-lg-9">
               <div class="content">
-                <!-- product slider start  -->
+                <!-- product banner slider start  -->
                 <div class="row">
                   <section class="banner">
                     <div class="banner-slider">
@@ -294,7 +372,9 @@
                     </div>
                   </section>
                 </div>
-                <!-- product slider end -->
+                <!-- product banner slider end -->
+
+                <!-- hot deals -->
                 <div class="products-section">
                   <div class="product-heading">
                     <h3>Hot Deals</h3>
@@ -456,6 +536,20 @@
                     <!-- product card  end -->
                   </div>
                 </div>
+                <!-- for ads -->
+                <div class="row mb-20">
+                  <div class="col-lg-6">
+                    <div class="foradd">
+                      <h4>For Ads</h4>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="foradd">
+                      <h4>For Ads</h4>
+                    </div>
+                  </div>
+                </div>
+                <!-- flash sell  -->
                 <div class="products-section">
                   <div class="product-heading">
                     <h3>Flash Sell</h3>
@@ -617,6 +711,7 @@
                     <!-- product card  end -->
                   </div>
                 </div>
+                <!-- Recommended products  -->
                 <div class="products-section">
                   <div class="product-heading">
                     <h3>Recommended Products</h3>
@@ -778,6 +873,11 @@
                     <!-- product card  end -->
                   </div>
                 </div>
+
+                <!-- for add  -->
+                <div class="foradd">
+                  <h4>For Ads</h4>
+                </div>
               </div>
             </div>
           </div>
@@ -909,7 +1009,7 @@
     <script src="assets/js/jquery.appear.js"></script>
     <script src="assets/js/jquery.odometer.min.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/ajax-form.js"></script>
+    <!-- <script src="assets/js/ajax-form.js"></script> -->
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/script.js"></script>
     <!-- JS end here -->
