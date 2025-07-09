@@ -186,8 +186,8 @@
       infinite: true,
       arrows: false,
       speed: 500,
-      // prevArrow: `<i class="fas arrow arrow-prev fa-arrow-left"></i>`,
-      // nextArrow: `<i class="fas arrow arrow-next fa-arrow-right"></i>`,
+       prevArrow: `<i class="fas arrow arrow-prev fa-arrow-left"></i>`,
+       nextArrow: `<i class="fas arrow arrow-next fa-arrow-right"></i>`,
       responsive: [
         {
           breakpoint: 992,
@@ -204,32 +204,39 @@
       ],
     });
 
-  //   // // Service two slider js
-  //   $(".service-slider-two").slick({
-  //     slidesToShow: 3,
-  //     slidesToScroll: 1,
-  //     autoplay: true,
-  //     dots: true,
-  //     infinite: true,
-  //     arrows: false,
-  //     speed: 500,
-  //     prevArrow: `<i class="fas arrow arrow-prev fa-arrow-left"></i>`,
-  //     nextArrow: `<i class="fas arrow arrow-next fa-arrow-right"></i>`,
-  //     responsive: [
-  //       {
-  //         breakpoint: 992,
-  //         settings: {
-  //           slidesToShow: 2,
-  //         },
-  //       },
-  //       {
-  //         breakpoint: 768,
-  //         settings: {
-  //           slidesToShow: 1,
-  //         },
-  //       },
-  //     ],
-  //   });
+    // // Service two slider js
+$(".hot-deals").slick({
+  slidesToShow: 4,
+  slidesToScroll: 2,
+  autoplay: true,
+  dots: false,
+  infinite: true,
+  arrows: true,
+  centerPadding: '40px',
+  speed: 500,
+  prevArrow: '<button class="custom-prev-arrow"><i class="fa-solid fa-angle-left"></i></button>',
+  nextArrow: '<button class="custom-next-arrow"><i class="fa-solid fa-angle-right"></i></button>',
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 4,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow:2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow:1,
+      },
+    },
+  ],
+});
 
   //   // // Testimonial slider js
   //   $(".testimonial-slider").slick({

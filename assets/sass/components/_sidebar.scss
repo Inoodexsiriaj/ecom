@@ -29,51 +29,76 @@
   }
   .catagories {
     list-style: none;
-    margin-top: 20px;
     padding-left: 10px;
 
     li {
-      margin-bottom: 15px;
-      &.active {
-        a {
-          &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 100%;
-            width: 100%;
-            height: 2px;
-            background-color: var(--bs-primary-color);
-            transition: width 0.5s ease;
-          }
-        }
-      }
-
+      position: relative;
       a {
         color: var(--bs-paragraph-color);
         font-weight: 500;
         position: relative;
-        transition: all 0.5s;
+        transition: all 0.8s;
+        border: 1px solid #dde3dd;
+        line-height: 39px;
+        display: block;
+        padding: 0 15px;
+        border-bottom: 0px;
+        background: var(--bs-white-color);
+        position: relative;
 
-        &::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 100%;
-          width: 0;
-          height: 2px;
-          background-color: var(--bs-primary-color);
-          transition: width 0.5s ease;
+        &:hover {
+          background: var(--bs-border-color);
         }
       }
+      .dropdown-megamenu {
+        position: absolute;
+        width: 600px;
+        top: 0;
+        left: 100%;
+        padding: 20px 10px;
+        transition: all 0.7s;
+        background: var(--bs-white-color);
+        box-shadow: 15px 0px 28px 3px var(--bs-border-color);
+        transform: translateY(30px);
 
-      &:hover {
-        a {
-          &::after {
-            width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        .megamenu-col {
+          h5 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
           }
-          margin-left: 5px;
-          color: var(--bs-primary-color);
+        }
+        ul {
+          li {
+            a {
+              border: 0;
+              line-height: 30px;
+              font-weight: 400;
+              font-size: 14px;
+              display: inline-block;
+              text-transform: capitalize;
+              &:hover {
+                color: var(--bs-primary-color);
+              }
+              &:hover {
+                background: none;
+              }
+            }
+          }
+        }
+      }
+      &:hover {
+        .dropdown-megamenu {
+          transform: translateY(0);
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+      &:last-child {
+        a {
+          border-bottom: 1px solid #dde3dd;
         }
       }
     }
@@ -118,8 +143,68 @@
   // product css
 
   .products-section {
+    margin-bottom: 30px;
     h3 {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      border-left: 2px solid var(--bs-primary-color);
+      padding: 0 15px;
+    }
+    .product-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      a {
+        color: var(--bs-paragraph-color);
+        &:hover {
+          color: var(--bs-primary-color);
+        }
+      }
+    }
+    .hot-deals {
+      background:var(--bs-white-color) .slick-track {
+        display: flex;
+        align-items: center;
+      }
+      .custom-prev-arrow,
+      .custom-next-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        z-index: 80;
+        background-color: var(--bs-white-color);
+        border: 1px solid var(--bs-border-color);
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 50%;
+        color: var(--bs-paragraph-color);
+        &:hover {
+          background: var(--bs-primary-color);
+          color: var(--bs-white-color);
+        }
+      }
+      .custom-prev-arrow {
+        left: 0;
+      }
+      .custom-next-arrow {
+        right: -5px;
+      }
+      .slick-prev:hover,
+      .slick-next:hover {
+        background: #dde3dd; /* হোভারে ব্যাকগ্রাউন্ড */
+        color: #000; /* হোভারে আইকনের রং */
+      }
+
+      .slick-prev {
+        left: -50px; /* বাম অ্যারোর পজিশন */
+      }
+
+      .slick-next {
+        right: -50px; /* ডান অ্যারোর পজিশন */
+      }
     }
   }
   .product {
@@ -129,6 +214,9 @@
     padding: 10px;
     transition: var(--bs--transition);
     border-radius: 7px;
+    margin-right: 15px;
+    margin-left: 15px;
+
     &:hover {
       border-color: var(--bs-primary-color);
     }

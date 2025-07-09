@@ -5,7 +5,7 @@
   .footer-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-
+    padding-bottom: 20px;
     .footer-widget {
       h4 {
         font-size: 18px;
@@ -81,6 +81,17 @@
             align-items: center;
           }
         }
+      }
+    }
+  }
+  // footer bottom css
+  .footer-bottom {
+    border-top: 1px solid var(--bs-paragraph-color);
+    padding-top: 30px;
+
+    .footer-payment {
+      img {
+        width: 100%;
       }
     }
   }
