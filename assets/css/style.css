@@ -591,7 +591,7 @@ p {
 }
 @media (max-width: 1199.98px) {
   .main-wrapper {
-    margin-top: 80px;
+    margin-top: 0;
   }
 }
 
@@ -1091,42 +1091,144 @@ p {
 /*=============================
 	03. Sidebar SCSS Start
 ===============================*/
-.sidebar {
+/* Mobile Sidebar (<=991px) */
+.sidebar-mobile {
+  display: none;
+  position: fixed;
+  background-color: white;
+  z-index: 109;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 70%;
+  transition: all 0.7s;
+  box-shadow: -3px 0px 30px -14px #2c2c2c;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.sidebar-mobile.sidebar_active {
+  left: 0;
+}
+.sidebar-mobile .catagories {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar-mobile .catagories li {
+  position: relative;
+}
+.sidebar-mobile .catagories li.cat-heading {
+  background-color: var(--bs-primary-color);
+  color: var(--bs-white-color);
+  padding: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.sidebar-mobile .catagories li a {
+  color: var(--bs-paragraph-color);
+  font-weight: 500;
+  position: relative;
+  transition: background 0.3s ease;
+  border: 1px solid #dde3dd;
+  line-height: 30px;
+  display: block;
+  padding: 0 10px;
+  border-bottom: 0px;
+  background: var(--bs-white-color);
+}
+.sidebar-mobile .catagories li a:hover {
+  background: var(--bs-border-color);
+}
+.sidebar-mobile .catagories li .arrow-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+  font-size: 10px;
+}
+.sidebar-mobile .catagories li.megamenu .toggle-submenu.active .arrow-icon {
+  transform: translateY(-50%) rotate(90deg);
+}
+.sidebar-mobile .catagories li.megamenu .dropdown-megamenu {
+  display: none;
+  position: static;
+  width: 100%;
+  padding: 10px;
+  background: var(--bs-white-color);
+  border: 1px solid #dde3dd;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+.sidebar-mobile .catagories li.megamenu .dropdown-megamenu .megamenu-col {
+  padding-left: 10px;
+}
+.sidebar-mobile .catagories li.megamenu .dropdown-megamenu .megamenu-col h5 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.sidebar-mobile .catagories li.megamenu .dropdown-megamenu .megamenu-col ul li a {
+  border: 0;
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 10px;
+  display: inline-block;
+  padding-left: 0;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+.sidebar-mobile .catagories li.megamenu .dropdown-megamenu .megamenu-col ul li a:hover {
+  color: var(--bs-primary-color);
+  background: none;
+  margin-left: 5px;
+}
+.sidebar-mobile .catagories li:last-child a {
+  border-bottom: 1px solid #dde3dd;
+}
+@media (max-width: 576px) {
+  .sidebar-mobile .catagories li.cat-heading {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .sidebar-mobile .catagories li a {
+    font-size: 12px;
+    line-height: 28px;
+    padding: 0 8px;
+  }
+  .sidebar-mobile .catagories li .dropdown-megamenu {
+    padding: 8px;
+  }
+  .sidebar-mobile .catagories li .dropdown-megamenu .megamenu-col h5 {
+    font-size: 10px;
+  }
+  .sidebar-mobile .catagories li .dropdown-megamenu .megamenu-col ul li a {
+    font-size: 9px;
+    line-height: 18px;
+  }
+}
+
+/* Desktop Sidebar (>991px) */
+.sidebar-desktop {
+  display: block;
   position: sticky;
   top: 100px;
   z-index: 10;
 }
 @media (max-width: 1199.98px) {
-  .sidebar {
+  .sidebar-desktop {
     top: 80px;
   }
 }
-@media (max-width: 991.98px) {
-  .sidebar {
-    position: fixed;
-    background-color: white;
-    z-index: 109;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 70%;
-    transition: all 0.7s;
-    box-shadow: -3px 0px 30px -14px #2c2c2c;
-    padding-top: 20px;
-    padding-left: 20px;
-  }
-  .sidebar.sidebar_active {
-    left: 0;
-  }
-}
-.sidebar .catagories {
+.sidebar-desktop .catagories {
   list-style: none;
   padding-left: 10px;
 }
-.sidebar .catagories li {
+.sidebar-desktop .catagories li {
   position: relative;
 }
-.sidebar .catagories li.cat-heading {
+.sidebar-desktop .catagories li.cat-heading {
   background-color: var(--bs-primary-color);
   color: var(--bs-white-color);
   padding: 10px;
@@ -1134,7 +1236,7 @@ p {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
-.sidebar .catagories li a {
+.sidebar-desktop .catagories li a {
   color: var(--bs-paragraph-color);
   font-weight: 500;
   position: relative;
@@ -1146,10 +1248,10 @@ p {
   border-bottom: 0px;
   background: var(--bs-white-color);
 }
-.sidebar .catagories li a:hover {
+.sidebar-desktop .catagories li a:hover {
   background: var(--bs-border-color);
 }
-.sidebar .catagories li .arrow-icon {
+.sidebar-desktop .catagories li .arrow-icon {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -1157,11 +1259,11 @@ p {
   transition: transform 0.3s ease;
   font-size: 12px;
 }
-.sidebar .catagories li.megamenu .toggle-submenu.active .arrow-icon {
+.sidebar-desktop .catagories li.megamenu .toggle-submenu:hover .arrow-icon {
   transform: translateY(-50%) rotate(90deg);
 }
-.sidebar .catagories li.megamenu .dropdown-megamenu {
-  display: none;
+.sidebar-desktop .catagories li.megamenu .dropdown-megamenu {
+  display: grid;
   position: absolute;
   width: 600px;
   top: 0;
@@ -1171,16 +1273,20 @@ p {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 80;
   grid-template-columns: 1fr 1fr 1fr;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s ease, opacity 0.3s ease;
+  box-sizing: border-box;
 }
-.sidebar .catagories li.megamenu .dropdown-megamenu .megamenu-col {
+.sidebar-desktop .catagories li.megamenu .dropdown-megamenu .megamenu-col {
   padding-left: 10px;
 }
-.sidebar .catagories li.megamenu .dropdown-megamenu .megamenu-col h5 {
+.sidebar-desktop .catagories li.megamenu .dropdown-megamenu .megamenu-col h5 {
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 10px;
 }
-.sidebar .catagories li.megamenu .dropdown-megamenu ul li a {
+.sidebar-desktop .catagories li.megamenu .dropdown-megamenu ul li a {
   border: 0;
   line-height: 25px;
   font-weight: 400;
@@ -1190,57 +1296,37 @@ p {
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
-.sidebar .catagories li.megamenu .dropdown-megamenu ul li a:hover {
+.sidebar-desktop .catagories li.megamenu .dropdown-megamenu ul li a:hover {
   color: var(--bs-primary-color);
   background: none;
   margin-left: 5px;
 }
-.sidebar .catagories li:last-child a {
+.sidebar-desktop .catagories li.megamenu:hover .dropdown-megamenu {
+  visibility: visible;
+  opacity: 1;
+}
+.sidebar-desktop .catagories li:last-child a {
   border-bottom: 1px solid #dde3dd;
 }
-@media (max-width: 991px) {
-  .sidebar .catagories {
-    padding-left: 0;
-  }
-  .sidebar .catagories li.cat-heading {
-    font-size: 16px;
-    padding: 8px;
-  }
-  .sidebar .catagories li a {
-    font-size: 14px;
-    line-height: 30px;
-    padding: 0 10px;
-  }
-  .sidebar .catagories li .arrow-icon {
-    font-size: 10px;
-  }
-  .sidebar .catagories li.megamenu .dropdown-megamenu {
-    position: static;
-    width: 100%;
-    display: none;
-    grid-template-columns: 1fr;
-    padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #dde3dd;
-    box-shadow: none;
-  }
-}
-@media (max-width: 576px) {
-  .sidebar .catagories li.cat-heading {
-    font-size: 14px;
-  }
-  .sidebar .catagories li a {
-    line-height: 28px;
-    padding: 0 8px;
-  }
-  .sidebar .catagories li .dropdown-megamenu {
-    padding: 8px;
-  }
-  .sidebar .catagories li .dropdown-megamenu .megamenu-col ul li a {
-    line-height: 20px;
-  }
-}
 
+/* Show/Hide Sidebars based on screen size */
+@media (max-width: 991px) {
+  .sidebar-mobile {
+    display: block;
+    z-index: 999999;
+  }
+  .sidebar-desktop {
+    display: none;
+  }
+}
+@media (min-width: 991.01px) {
+  .sidebar-mobile {
+    display: none;
+  }
+  .sidebar-desktop {
+    display: block;
+  }
+}
 .content .banner {
   width: 100%;
 }
@@ -1285,6 +1371,7 @@ p {
 }
 .content .products-section .product-heading a {
   color: var(--bs-paragraph-color);
+  font-weight: 600;
 }
 .content .products-section .product-heading a:hover {
   color: var(--bs-primary-color);

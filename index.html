@@ -234,7 +234,8 @@
           <div class="row">
             <!-- sidebar start  -->
             <div class="col-lg-3">
-              <aside class="sidebar">
+              <!-- Mobile Sidebar (shown on <=991px) -->
+              <aside class="sidebar sidebar-mobile">
                 <ul class="catagories">
                   <li class="cat-heading">Categories</li>
                   <li class="megamenu">
@@ -298,7 +299,7 @@
                   <li><a href="#">Wines</a></li>
                 </ul>
 
-                <!-- slider -->
+                <!-- Slider -->
                 <div class="dual-range-slider-container">
                   <label for="range-min">Price:</label>
                   <div class="slider-wrapper">
@@ -327,7 +328,7 @@
                   </div>
                 </div>
 
-                <!-- rating filter -->
+                <!-- desktop Rating Filter -->
                 <div class="star-rating-filter-container">
                   <label for="star-rating">Filter by Rating:</label>
                   <div class="star-rating">
@@ -349,6 +350,126 @@
                   </div>
                   <div class="selected-rating">
                     Selected: <span id="selected-rating">0</span> Star(s)
+                  </div>
+                </div>
+              </aside>
+
+              <!-- Desktop Sidebar (shown on >991px) -->
+              <aside class="sidebar sidebar-desktop">
+                <ul class="catagories">
+                  <li class="cat-heading">Categories</li>
+                  <li class="megamenu">
+                    <a href="#" class="toggle-submenu"
+                      >Breakfast <i class="fas fa-chevron-right arrow-icon"></i
+                    ></a>
+                    <div class="dropdown-megamenu">
+                      <div class="megamenu-col">
+                        <h5>Liststyle</h5>
+                        <ul class="list-unstyled">
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                        </ul>
+                      </div>
+                      <div class="megamenu-col">
+                        <h5>Liststyle</h5>
+                        <ul class="list-unstyled">
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                        </ul>
+                      </div>
+                      <div class="megamenu-col">
+                        <h5>Liststyle</h5>
+                        <ul class="list-unstyled">
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="megamenu">
+                    <a href="#" class="toggle-submenu"
+                      >Dairy <i class="fas fa-chevron-right arrow-icon"></i
+                    ></a>
+                    <div class="dropdown-megamenu">
+                      <div class="megamenu-col">
+                        <h5>Liststyle</h5>
+                        <ul class="list-unstyled">
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                          <li><a href="#">products</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li><a href="#">Desert</a></li>
+                  <li><a href="#">Dinner</a></li>
+                  <li><a href="#">Fruits & Vagetables</a></li>
+                  <li><a href="#">Milk & Cream</a></li>
+                  <li><a href="#">Wines</a></li>
+                </ul>
+
+                <!-- Slider -->
+                <div class="dual-range-slider-container">
+                  <label for="range-min2">Price:</label>
+                  <div class="slider-wrapper">
+                    <input
+                      type="range"
+                      id="range-min2"
+                      min="0"
+                      max="10000"
+                      value="1000"
+                    />
+                    <input
+                      type="range"
+                      id="range-max2"
+                      min="0"
+                      max="10000"
+                      value="7000"
+                    />
+                    <div class="slider-track"></div>
+                    <div class="slider-range slider-range2"></div>
+                  </div>
+                  <div class="slider-values">
+                    Min: $<span id="min-value2">1000</span> | Max: $<span
+                      id="max-value2"
+                      >7000</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="star-rating-filter-container">
+                  <label for="star-rating">Filter by Rating:</label>
+                  <div class="star-rating desktop-star">
+                    <span class="star" data-value="1"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="2"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="3"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="4"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                    <span class="star" data-value="5"
+                      ><i class="fa-solid fa-star"></i
+                    ></span>
+                  </div>
+                  <div class="selected-rating">
+                    Selected: <span id="selected-rating2">0</span> Star(s)
                   </div>
                 </div>
               </aside>

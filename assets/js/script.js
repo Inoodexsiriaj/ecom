@@ -1,18 +1,18 @@
 (function ($) {
   "use strict";
 
-  // fixed menu on scroll 
-    var $header = $('#sticky-header');
+  // fixed menu on scroll
+  var $header = $("#sticky-header");
   var lastScrollTop = 0;
 
-  $(window).on('scroll', function () {
+  $(window).on("scroll", function () {
     var scrollTop = $(window).scrollTop();
     var headerHeight = $header.outerHeight();
 
     if (scrollTop > headerHeight) {
-      $header.addClass('fixed-nav');
+      $header.addClass("fixed-nav");
     } else {
-      $header.removeClass('fixed-nav');
+      $header.removeClass("fixed-nav");
     }
 
     lastScrollTop = scrollTop;
@@ -34,9 +34,8 @@
     );
   });
 
-  // sidebar toggler 
+  // sidebar toggler
   $(".bars").click(function () {
-
     // টগল sidebar_active ক্লাস
     $("aside.sidebar").toggleClass("sidebar_active");
 
@@ -49,35 +48,36 @@
     }
   });
 
-
-  // mobile menu toggle 
+  // mobile menu toggle
   // Toggle mobile menu
-    $(".nav-toggle").on("click", function () {
-      $(".nav-menu").toggleClass("active");
-     
-    });
-   
+  $(".nav-toggle").on("click", function () {
+    $(".nav-menu").toggleClass("active");
+  });
 
-    // Accordion-style dropdown menu
-    $(".menu-item.dropdown .menu-link").on("click", function (e) {
-      e.preventDefault();
-      const parent = $(this).parent();
-      const isOpen = parent.hasClass("open");
+  // Accordion-style dropdown menu
+  $(".menu-item.dropdown .menu-link").on("click", function (e) {
+    e.preventDefault();
+    const parent = $(this).parent();
+    const isOpen = parent.hasClass("open");
 
-      // Close all other dropdowns
-      $(".menu-item.dropdown").not(parent).removeClass("open").find(".dropdown-menu").slideUp(300);
+    // Close all other dropdowns
+    $(".menu-item.dropdown")
+      .not(parent)
+      .removeClass("open")
+      .find(".dropdown-menu")
+      .slideUp(300);
 
-      // Toggle the clicked dropdown
-      parent.toggleClass("open");
-      parent.find(".dropdown-menu").slideToggle(300);
-    });
+    // Toggle the clicked dropdown
+    parent.toggleClass("open");
+    parent.find(".dropdown-menu").slideToggle(300);
+  });
 
-    // range slider 
-     var $rangeMin = $('#range-min');
-  var $rangeMax = $('#range-max');
-  var $minValueDisplay = $('#min-value');
-  var $maxValueDisplay = $('#max-value');
-  var $sliderRange = $('.slider-range');
+  // range slider
+  var $rangeMin = $("#range-min");
+  var $rangeMax = $("#range-max");
+  var $minValueDisplay = $("#min-value");
+  var $maxValueDisplay = $("#max-value");
+  var $sliderRange = $(".slider-range");
 
   function updateSlider() {
     var minVal = parseInt($rangeMin.val());
@@ -94,11 +94,11 @@
     $maxValueDisplay.text(maxVal);
 
     // Update the highlighted range
-    var minPercent = (minVal / parseInt($rangeMin.attr('max'))) * 100;
-    var maxPercent = (maxVal / parseInt($rangeMax.attr('max'))) * 100;
+    var minPercent = (minVal / parseInt($rangeMin.attr("max"))) * 100;
+    var maxPercent = (maxVal / parseInt($rangeMax.attr("max"))) * 100;
     $sliderRange.css({
-      'left': minPercent + '%',
-      'width': (maxPercent - minPercent) + '%'
+      left: minPercent + "%",
+      width: maxPercent - minPercent + "%",
     });
   }
 
@@ -106,44 +106,125 @@
   updateSlider();
 
   // Event listeners for both sliders
-  $rangeMin.on('input', updateSlider);
-  $rangeMax.on('input', updateSlider);
+  $rangeMin.on("input", updateSlider);
+  $rangeMax.on("input", updateSlider);
+  //==================================
+  // range slider 2
+  //==================================
+  var $rangeMin2 = $("#range-min2");
+  var $rangeMax2 = $("#range-max2");
+  var $minValueDisplay2 = $("#min-value2");
+  var $maxValueDisplay2 = $("#max-value2");
+  var $sliderRange2 = $(".slider-range.slider-range2");
 
-  // filter by rating 
-   var $stars = $('.star-rating .star');
-  var $selectedRating = $('#selected-rating');
+  function updateSlider2() {
+    var minVal = parseInt($rangeMin2.val());
+    var maxVal = parseInt($rangeMax2.val());
+
+    // Ensure minVal is not greater than maxVal
+    if (minVal > maxVal) {
+      $rangeMin2.val(maxVal);
+      minVal = maxVal;
+    }
+
+    // Update display values
+    $minValueDisplay2.text(minVal);
+    $maxValueDisplay2.text(maxVal);
+
+    // Update the highlighted range
+    var minPercent = (minVal / parseInt($rangeMin2.attr("max"))) * 100;
+    var maxPercent = (maxVal / parseInt($rangeMax2.attr("max"))) * 100;
+    $sliderRange2.css({
+      left: minPercent + "%",
+      width: maxPercent - minPercent + "%",
+    });
+  }
+
+  // Initial update
+  updateSlider2();
+
+  // Event listeners for both sliders
+  $rangeMin2.on("input", updateSlider2);
+  $rangeMax2.on("input", updateSlider2);
+  //=============================
+  // range slider 2 end
+  //=============================
+
+  //=========================
+  // filter by rating
+  //=========================
+  var $stars = $(".star-rating .star");
+  var $selectedRating = $("#selected-rating");
 
   // Handle click on stars
-  $stars.on('click', function () {
-    var rating = $(this).data('value');
-    $stars.removeClass('active');
+  $stars.on("click", function () {
+    var rating = $(this).data("value");
+    $stars.removeClass("active");
     $stars.each(function (index, star) {
-      if ($(star).data('value') <= rating) {
-        $(star).addClass('active');
+      if ($(star).data("value") <= rating) {
+        $(star).addClass("active");
       }
     });
     $selectedRating.text(rating);
     // Trigger filtering logic here (e.g., filter products with rating >= selected rating)
-    console.log('Filter products with rating >= ' + rating);
   });
 
   // Handle hover on stars
-  $stars.on('mouseenter', function () {
-    var rating = $(this).data('value');
-    $stars.removeClass('hover');
+  $stars.on("mouseenter", function () {
+    var rating = $(this).data("value");
+    $stars.removeClass("hover");
     $stars.each(function (index, star) {
-      if ($(star).data('value') <= rating) {
-        $(star).addClass('hover');
+      if ($(star).data("value") <= rating) {
+        $(star).addClass("hover");
       }
     });
   });
 
   // Remove hover effect when mouse leaves
-  $('.star-rating').on('mouseleave', function () {
-    $stars.removeClass('hover');
+  $(".star-rating").on("mouseleave", function () {
+    $stars.removeClass("hover");
   });
 
+  //=========================
+  // filter by rating end
+  //=========================
+  //=========================
+  // filter by rating 2
+  //=========================
+  var $stars2 = $(".desktop-star");
+  var $selectedRating2 = $("#selected-rating2");
 
+  // Handle click on stars
+  $stars2.on("click", function () {
+    var rating2 = $(this).data("value");
+    $stars2.removeClass("active");
+    $stars2.each(function (index, star) {
+      if ($(star).data("value") <= rating2) {
+        $(star).addClass("active");
+      }
+    });
+    $selectedRating2.text(rating2);
+  });
+
+  // Handle hover on stars
+  $stars2.on("mouseenter", function () {
+    var rating = $(this).data("value");
+    $stars2.removeClass("hover");
+    $stars2.each(function (index, star) {
+      if ($(star).data("value") <= rating) {
+        $(star).addClass("hover");
+      }
+    });
+  });
+
+  // Remove hover effect when mouse leaves
+  $(".desktop-star").on("mouseleave", function () {
+    $stars2.removeClass("hover");
+  });
+
+  //=========================
+  // filter by rating 2 end
+  //=========================
   //   // video popup js
   //   $(".vidplay").magnificPopup({
   //     type: "iframe",
@@ -246,87 +327,70 @@
   //     });
   //   }
 
-    // // banner slider js
-    $(".banner-slider").slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      dots: true,
-      infinite: true,
-      arrows: false,
-      speed: 700,
-       prevArrow: `<i class="fas arrow arrow-prev fa-arrow-left"></i>`,
-       nextArrow: `<i class="fas arrow arrow-next fa-arrow-right"></i>`,
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 1,
-          },
+  // // banner slider js
+  $(".banner-slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    dots: true,
+    infinite: true,
+    arrows: false,
+    speed: 700,
+    prevArrow: `<i class="fas arrow arrow-prev fa-arrow-left"></i>`,
+    nextArrow: `<i class="fas arrow arrow-next fa-arrow-right"></i>`,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
         },
-        {
-          breakpoint: 576,
-          settings: {
-            slidesToShow: 1,
-          },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
         },
-      ],
-    });
-
-    // // Service two slider js
-$(".hot-deals").slick({
-  slidesToShow: 4,
-  slidesToScroll: 2,
-  autoplay: true,
-  dots: false,
-  infinite: true,
-  arrows: true,
-  centerPadding: '40px',
-  speed: 500,
-  prevArrow: '<button class="custom-prev-arrow"><i class="fa-solid fa-angle-left"></i></button>',
-  nextArrow: '<button class="custom-next-arrow"><i class="fa-solid fa-angle-right"></i></button>',
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 4,
       },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow:2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow:2,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-});
-
-
-// sidebar category 
- 
-  // Toggle megamenu on click for all devices
-  $('.toggle-submenu').on('click', function (e) {
-    e.preventDefault();
-    var $parent = $(this).parent('.megamenu');
-    var $submenu = $(this).next('.dropdown-megamenu');
-
-    // Close other open submenus
-    $('.dropdown-megamenu').not($submenu).slideUp(300, 'swing').parent('.megamenu').find('.toggle-submenu').removeClass('active');
-
-    // Toggle current submenu
-    $(this).toggleClass('active');
-    $submenu.slideToggle(300, 'swing');
+    ],
   });
 
-  // Ensure hover doesn't interfere on desktop
-  $('.catagories li.megamenu').off('mouseenter mouseleave');
+  // // Service two slider js
+  $(".hot-deals").slick({
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    autoplay: true,
+    dots: false,
+    infinite: true,
+    arrows: true,
+    centerPadding: "40px",
+    speed: 500,
+    prevArrow:
+      '<button class="custom-prev-arrow"><i class="fa-solid fa-angle-left"></i></button>',
+    nextArrow:
+      '<button class="custom-next-arrow"><i class="fa-solid fa-angle-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  });
+
   //   // // Testimonial slider js
   //   $(".testimonial-slider").slick({
   //     slidesToShow: 1,
@@ -533,4 +597,17 @@ $(".hot-deals").slick({
   // ===================================
   // ===================================
   // ===================================
+  $(".sidebar-mobile .toggle-submenu").on("click", function (e) {
+    e.preventDefault();
+    var $submenu = $(this).next(".dropdown-megamenu");
+    var $parent = $(this).parent(".megamenu");
+
+    // Close other open submenus
+    $(".sidebar-mobile .dropdown-megamenu").not($submenu).slideUp(300);
+    $(".sidebar-mobile .toggle-submenu").not(this).removeClass("active");
+
+    // Toggle current submenu
+    $(this).toggleClass("active");
+    $submenu.slideToggle(300);
+  });
 })(jQuery);
