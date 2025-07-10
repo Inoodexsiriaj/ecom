@@ -4,7 +4,7 @@
 // Header section one
 
 .ep-header-section {
-  background-color: var(--bs-white-color);
+  background-color: #fff;
   z-index: 99;
 
   .main-nav {
@@ -23,10 +23,19 @@
       top: -100px;
       left: 0;
       right: 0;
-      background-color: var(--bs-white-color);
+      background-color: #fff;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       animation: slideDown 0.3s ease forwards;
       z-index: 1000;
+      .heaader-btns {
+        a {
+          .icon {
+            i {
+              color: white;
+            }
+          }
+        }
+      }
     }
 
     .header-btns {
@@ -80,6 +89,7 @@
           }
 
           i {
+            font-size: 18px;
             color: var(--bs-paragraph-color);
           }
         }
@@ -89,6 +99,7 @@
     .search-input {
       max-width: 50%;
       width: 100%;
+      background: transparent;
 
       form {
         position: relative;
@@ -98,7 +109,7 @@
         width: 100%;
         padding: 11px;
         border-radius: 30px;
-        border: 1px solid var(--bs-primary-color);
+        border: 1px solid #d3eccd;
 
         &::placeholder {
           font-size: 16px;

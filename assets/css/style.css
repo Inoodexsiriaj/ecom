@@ -609,7 +609,7 @@ p {
 	03. Header CSS Start
 ===============================*/
 .ep-header-section {
-  background-color: var(--bs-white-color);
+  background-color: #fff;
   z-index: 99;
 }
 .ep-header-section .main-nav {
@@ -624,10 +624,13 @@ p {
   top: -100px;
   left: 0;
   right: 0;
-  background-color: var(--bs-white-color);
+  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   animation: slideDown 0.3s ease forwards;
   z-index: 1000;
+}
+.ep-header-section .main-nav.fixed-nav .heaader-btns a .icon i {
+  color: white;
 }
 .ep-header-section .main-nav .header-btns {
   display: flex;
@@ -673,11 +676,13 @@ p {
   font-size: 9px;
 }
 .ep-header-section .main-nav .header-btns a .icon i {
+  font-size: 18px;
   color: var(--bs-paragraph-color);
 }
 .ep-header-section .main-nav .search-input {
   max-width: 50%;
   width: 100%;
+  background: transparent;
 }
 .ep-header-section .main-nav .search-input form {
   position: relative;
@@ -686,7 +691,7 @@ p {
   width: 100%;
   padding: 11px;
   border-radius: 30px;
-  border: 1px solid var(--bs-primary-color);
+  border: 1px solid #d3eccd;
 }
 .ep-header-section .main-nav .search-input input::placeholder {
   font-size: 16px;
@@ -1231,7 +1236,7 @@ p {
   border: 0;
   line-height: 25px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   display: inline-block;
   padding-left: 0;
   text-transform: capitalize;
@@ -1325,7 +1330,7 @@ p {
 .content .products-section .product-heading {
   display: flex;
   justify-content: space-between;
-  margin: 30px 0;
+  margin-bottom: 20px;
 }
 .content .products-section .product-heading a {
   color: var(--bs-paragraph-color);
@@ -2090,7 +2095,7 @@ p {
 }
 
 .products-section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .products-section h3 {
   margin-bottom: 20px;

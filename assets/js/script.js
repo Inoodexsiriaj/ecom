@@ -594,6 +594,14 @@
   //     }
   //   });
 
+  // hover  zoom image
+
+  $(".product-image").extm({
+    zoomSize: 1000,
+    position: "right",
+    imageSrc: $(this).attr("src"),
+  });
+
   // Counter functionality
   $(".counter button").click(function () {
     let input = $(this).siblings("input");
