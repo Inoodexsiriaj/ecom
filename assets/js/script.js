@@ -533,30 +533,30 @@
   //   }
 
   //   // back to top js
-  //   let btn = $(".scroll-to-top");
+  let btn = $(".scroll-to-top");
 
-  //   $(window).scroll(function () {
-  //     btn.toggleClass("show", $(window).scrollTop() > 300);
-  //   });
+  $(window).scroll(function () {
+    btn.toggleClass("show", $(window).scrollTop() > 300);
+  });
 
-  //   btn.click(function (e) {
-  //     e.preventDefault();
-  //     if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-  //       $("html").animate(
-  //         {
-  //           scrollTop: 0,
-  //         },
-  //         1000
-  //       );
-  //     } else {
-  //       $("html, body").animate(
-  //         {
-  //           scrollTop: 0,
-  //         },
-  //         0
-  //       );
-  //     }
-  //   });
+  btn.click(function (e) {
+    e.preventDefault();
+    if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+      $("html").animate(
+        {
+          scrollTop: 0,
+        },
+        1000
+      );
+    } else {
+      $("html, body").animate(
+        {
+          scrollTop: 0,
+        },
+        0
+      );
+    }
+  });
 
   //   // Mobile menu js start
   //   $(".mobile-topbar .bars").on("click", function () {
@@ -594,6 +594,39 @@
   //     }
   //   });
 
+  // Counter functionality
+  $(".counter button").click(function () {
+    let input = $(this).siblings("input");
+    let count = parseInt(input.val());
+
+    if ($(this).find("i").hasClass("fa-plus")) {
+      count++;
+      input.val(count);
+    } else if ($(this).find("i").hasClass("fa-minus") && count > 0) {
+      count--;
+      input.val(count);
+    }
+
+    // Disable minus button when count is 0
+    if (count === 0) {
+      $(".counter button:has(.fa-minus)").prop("disabled", true);
+    } else {
+      $(".counter button:has(.fa-minus)").prop("disabled", false);
+    }
+  });
+
+  // details page product thumb swather
+
+  // Thumbnail click event to change main image
+  $(".thumbnail-image").click(function () {
+    // Remove active class from all thumbnails
+    $(".thumbnail-image").removeClass("active");
+    // Add active class to clicked thumbnail
+    $(this).addClass("active");
+    // Change main image source
+    const largeImage = $(this).data("large");
+    $("#mainImage").attr("src", largeImage);
+  });
   // ===================================
   // ===================================
   // ===================================

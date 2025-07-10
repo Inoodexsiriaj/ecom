@@ -444,6 +444,12 @@
       h4 {
         font-size: 14px;
         margin-top: 15px;
+        a {
+          color: var(--bs-heading-color);
+          &:hover {
+            color: var(--bs-primary-color);
+          }
+        }
       }
 
       p {

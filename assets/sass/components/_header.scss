@@ -96,12 +96,36 @@
 
       input {
         width: 100%;
-        padding: 10px;
+        padding: 11px;
         border-radius: 30px;
         border: 1px solid var(--bs-primary-color);
 
         &::placeholder {
           font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .top-menu {
+    background-color: var(--bs-primary-color);
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        color: var(--bs-white-color);
+      }
+      ul {
+        padding: 0;
+        gap: 30px;
+        li {
+          a {
+            color: var(--bs-white-color);
+
+            font-size: 14px;
+            padding: 10px 0;
+          }
         }
       }
     }
