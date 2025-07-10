@@ -606,6 +606,9 @@ p {
   padding: 15px 0;
   transition: all 0.3s ease;
 }
+.ep-header-section .main-nav .logo a img {
+  width: 100px;
+}
 .ep-header-section .main-nav.fixed-nav {
   position: fixed;
   top: -100px;

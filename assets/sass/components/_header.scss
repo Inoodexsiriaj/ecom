@@ -10,6 +10,13 @@
   .main-nav {
     padding: 15px 0;
     transition: all 0.3s ease;
+    .logo {
+      a {
+        img {
+          width: 100px;
+        }
+      }
+    }
 
     &.fixed-nav {
       position: fixed;
